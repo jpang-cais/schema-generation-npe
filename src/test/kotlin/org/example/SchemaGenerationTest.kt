@@ -28,7 +28,7 @@ class SchemaGenerationTest {
             it.setScale(max(currency.defaultFractionDigits, it.scale()))
         }
 
-    // This test fails when using version 7.8.2 of `io.confluent:kafka-json-schema-serializer`, but passes with 7.8.1.
+    // This test fails with NullPointerException when using version 7.8.2 of `io.confluent:kafka-json-schema-serializer`, but passes with 7.8.1.
     @Test
     fun `should generate schema`() {
         val foo = Foo(Money.of(10, "USD"))
